@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Database Connections{% endblock %}
+
+{% block heading %}Table Records{% endblock %}
+
+{% block content %}
+    {% csrf_token %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Table Entries</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-stripped table-bordered table-hover tblDatatable">
+                <thead class="thead-light">
+                    <tr>
+                    	{% for column in cList %}
+                        <th>{{ column }}</th>
+                    	{% endfor %}
+                    	<th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                    <tr>
+                    	{% for col in row %}
+                    	<td>{{ col }}</td>
+                        {% endfor %}
+                        <td>
+                        	<a href="{% url 'connection:Delete' pk forloop.counter0 Table %}"><i class="fas fa-trash-alt"></i></a>
+                            <a href="{% url 'connection:Update' pk forloop.counter0 Table %}"><i class="fas fa-pencil-alt"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </br>
+            <div class="row">
+                <div class="col-sm-12" style="margin-bottom: 10px; float: left;">
+                    <a href="{% url 'connection:Create' pk Table %}" class="btn btn-primary float-right">Add New Record</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+   
+
+{% endblock %}
+
+{% block scriptDyn %}
+<script>
+
+$(document).ready( function () {
+    $('.tblDatatable').DataTable();
+} );
+    </script>
+{% endblock %}

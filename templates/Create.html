@@ -1,0 +1,19 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Database Connections{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<form action = "{% url 'connection:Create' pk Table %}" method = "POST" class="user">
+			{% csrf_token %}
+			{% for col in cList %}
+			<div class="form-group row">
+				<div class="col-sm-6 mb-3 mb-sm-0">
+					<label class="control-label col-sm-2" for="{{ forloop.counter0 }}" >{{ col }}:</label>
+					<input type = "text" id = "{{ col }}" name = "{{ col }}" class="form-control form-control-user">
+				</div>
+			</div>
+			{% endfor %}
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+	</div>
+{% endblock %}

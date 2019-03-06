@@ -1,0 +1,10 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Database Connections{% endblock %}
+
+{% block content %}
+	<form action="{% url 'userCRUD:DeletedbNames' pk %}" method='POST'>
+		{% csrf_token %}
+		<p>You sure to delete?</p>
+		<input type="submit" value="submit" />
+	</form>
+{% endblock %}

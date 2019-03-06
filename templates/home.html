@@ -1,0 +1,60 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Database Connections{% endblock %}
+
+{% block heading %}Database Connections{% endblock %}
+
+{% block content %}
+    {% csrf_token %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Host</th>
+                        <th>Port No.</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for name in DbNames %}
+                    <tr>
+                        <td>{{ name.dbName }}</td>
+                        <td>{{ name.dbUsername }}</td>
+                        <td>{{ name.dbPassword }}</td>
+                        <td>{{ name.dbHost }}</td>
+                        <td>{{ name.dbPort }}</td>
+                        <td>
+                            <a href="{% url 'connection:Select' name.id %}"><i class="far fa-thumbs-up"></i></a></div>
+                            <a href="{% url 'userCRUD:EditdbNames' name.id %}"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{% url 'userCRUD:DeletedbNames' name.id %}"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </br>
+            <div class="row" style="float: left;">
+                <div class="col-sm-12" style="margin-bottom: 10px">
+                    <a href="{% url 'userCRUD:CreatedbNames' %}" class="btn btn-primary float-right" style="margin-bottom: 10px;" >Add New Record</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scriptDyn %}
+<script>
+
+$(document).ready( function () {
+    $('#dataTable').DataTable();
+} );
+    </script>
+          {% endblock %}

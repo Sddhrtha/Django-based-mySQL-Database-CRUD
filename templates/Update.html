@@ -1,0 +1,21 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Database Connections{% endblock %}
+
+{% block heading %}Update Record{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<form class="user" action = "{% url 'connection:Update' pk counter Table %}" method = "POST">
+			{% csrf_token %}
+			{% for col, row in Meta %}
+			<div class="form-group row">
+				<div class="col-sm-6 mb-3 mb-sm-0">
+					<label class="control-label col-sm-2" for="{{ forloop.counter0 }}">{{ col }}</label>
+					<input class="form-control form-control-user" type="text" id="{{ col }}" name="{{ col }}" value="{{ row }}" class>
+				</div>
+			</div>
+			{% endfor %}
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+	</div>
+{% endblock %}
