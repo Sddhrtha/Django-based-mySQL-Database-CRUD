@@ -2,7 +2,7 @@
 
 An intuitive and easy way to manage your mySQL Database.\
 A Django based web application that lets you manage your mySQL Databases intuitively, using GUI, without running any queries. \
-Originally developed as a necessity for an organisation to efficiently manage it's Databases without any overhead of running
+Originally developed as a necessity for an organisation to efficiently manage it's databases without any overhead of running
 queries, the application can be used by anyone to manage their own mySQL Database.\
 
 # Required Installations
