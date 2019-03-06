@@ -19,7 +19,7 @@ PyMySQL : 0.9.3
 `<pip install django>` \
 `<pip install django-crispy-forms>` \
 `<pip install mysqlclient>` \
-`<pip install pyMySQL>`  \
+`<pip install pyMySQL>`  
 
 # Running Code
 In terminal, change the directory to the repository where the 'manage.py' file of the project exists. And run the following
