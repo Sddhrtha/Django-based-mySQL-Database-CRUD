@@ -6,7 +6,7 @@ Originally developed as a necessity for an organisation to efficiently manage it
 queries, the application can be used by anyone to manage their own mySQL Database. 
 
 # Required Installations
-It's recommended that you use [virtualenv](https://docs.python-guide.org/dev/virtualenvs/)\ if you don't wish to tamper the
+It's recommended that you use [virtualenv](https://docs.python-guide.org/dev/virtualenvs/) if you don't wish to tamper the
 packages being used by the system.\
 The recommended versions: \
 django : 2.1.5 \
